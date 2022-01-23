@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>Astronomy Picture of The Day</title>
+    <meta name="author" content="Kevan Haggins">
+    <meta name="description" content="My entry to the Front End Developer Intern Challenge - Summer 2022">
+    <meta name="keywords" content="Web development, internship, cool guy with lots of fun stories">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="icon" type="image/png" href="assets/favicon.png">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Open+Sans&display=swap" rel="stylesheet">
+    <script src="https://kit.fontawesome.com/92327c7e07.js" crossorigin="anonymous"></script>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    
+    <section id="navbar">
+        <a href="index.html"><img src="assets/logo.png"></a>
+    </section>
+
+    <section id="loading-screen">
+        <img src="assets/preloader-lowres.gif" id="gif" alt="A loading icon of a spaceship flying through space">
+    </section>
+
+    <div class="wrapper" id="wrapper">
+        <div class="parallax_group hero-container" id="hero">
+            <div class="parallax_layer background" id="background"></div>
+            <div class="parallax_layer hero-text">
+                <h2>NASA's Astronomy Picture of the Day</h2>
+                <p><a href="#section">Scroll down<br>&darr;</a></p>
+            </div>
+            <div class="parallax_layer mountain" id="mountain"></div>
+            <div class="parallax_layer moon" id="moon"></div>
+        </div>
+
+        <div class="parallax_group info-container" id="section">
+            <div class="info-container-left">
+                <img src="" id="image">
+            </div>
+            <div class="info-container-right">
+                <a href="#hero">&uarr;</a>
+                <p id="date"></p>
+                <h3 id="title"></h3>
+                <p id="description"></p>
+                <button id="like-button"><i class="fas fa-heart" id="heart"></i></button>
+            </div>
+        </div>
+    </div>
+   
+<script src="js/main.js"></script>
+</body>
+</html>

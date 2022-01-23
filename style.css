@@ -1,0 +1,366 @@
+* {
+  scroll-behavior: smooth;
+  box-sizing: border-box;
+  font-family: 'Open Sans', sans-serif;
+}
+
+body {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  width: 100vw;
+  height: 100vh;
+  margin: 0;
+  padding: 0;
+  background: black;
+  color: white;
+  overflow: hidden;
+}
+
+/* CSS trick to preload images */
+/* https://stackoverflow.com/questions/1373142/preloading-css-images/14390213 */
+body::after{
+  position:absolute; width:0; height:0; overflow:hidden; z-index:-1; 
+  content:url(assets/background.jpg) url(assets/moon.png) url(assets/mountains.png); 
+}
+
+canvas {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  z-index: 1;
+}
+
+/* Landing page styling */
+
+#intro {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  user-select: none;
+  color: white;
+  position: absolute;
+  left: 50%;
+  transform: translateX(-50%);
+  z-index: 2;
+  text-align: center;
+}
+
+#intro h1 {
+  font-size: 6.5vw;
+  letter-spacing: 2px;
+  font-weight: 700;
+  font-family: 'Bebas Neue', cursive;
+  margin: 0;
+}
+
+#intro button {
+  color: white;
+  font-size: 1.3vw;
+  width: 40%;
+  height: 50px;
+  background-color: #40bbad;
+  border-radius: 10px;
+  border: none;
+  transition: 0.5s;
+}
+
+#intro button:hover {
+  box-shadow: 4px 4px 0px 3px #2a9d8f;
+  background-color: transparent;
+  cursor: pointer;
+  transform: scale(1.02);
+}
+
+#intro button:active {
+  transform: scale(0.9);
+  box-shadow: none;
+}
+
+/* Pre loader style */
+
+#loading-screen {
+  width: 100vw;
+  height: 100vh;
+  background-color: black;
+  z-index: 3;
+  position: absolute;
+}
+
+#gif {
+  position: absolute;
+  width: 25%;
+  height: 25%;
+  top: 30%;
+  left: 50%;
+  transform: translateX(-50%);
+  z-index: 3;
+}
+
+/* Gallery header */
+
+#navbar img {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 3vw;
+  z-index: 4;
+  margin: 20px;
+}
+
+/* Parallax hero banner */
+
+.wrapper {
+  height: 100vh;
+  overflow-x: hidden;
+  overflow-y: auto;
+  perspective: 300px;
+}
+
+.parallax_group {
+  position: relative;
+  height: 100vh;
+  width: 100vw;
+  transform-style: preserve-3d;
+}
+
+.parallax_layer {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+}
+
+.background {
+  background: url('./assets/background.jpg') no-repeat center;
+  background-size: cover;
+  opacity: 0.6;
+  transform: translateZ(-600px) scale(3);
+  z-index: 2;
+}
+
+.mountain {
+  background: url('./assets/mountains.png') no-repeat center;
+  background-size: cover;
+  transform: translateZ(-400px) scale(2.5);
+  z-index: 2;
+}
+
+.moon {
+  background: url('./assets/moon.png') no-repeat center;
+  background-size: contain;
+  width: 20%;
+  height: 20%;
+  position: absolute;
+  top: -35%;    
+  left: 120%;
+  transform: translateZ(-200px) scale(2.4);
+  z-index: 1;
+}
+
+.hero-text {
+  background: linear-gradient(
+    rgba(105, 211, 252, 0.25) 0%,
+    rgba(80, 29, 45, 0.795) 100%,
+  );
+  background-size: cover;
+  transform: translateZ(0) scale(1);
+  z-index: 3;
+  position: absolute;
+  left: 70%;
+  top: 30%;
+  transform: translate(-50%, -50%);
+  transform: translateZ(-400px) scale(2.5);
+  text-align: center;
+  z-index: 3;   
+}
+
+.hero-text h2 {
+  font-family: 'Bebas Neue', cursive;
+  margin: 0;
+  font-size: 5.5vw;
+  line-height: 90%;
+}
+
+.hero-text a {
+  text-decoration: none;
+  color: white;
+  font-family: Arial, Helvetica, sans-serif;
+}
+
+/* Photo of the day section */
+
+.info-container {
+  background: #000;
+  display: flex;
+}
+
+.info-container-left, .info-container-right {
+  width: 50%;
+}
+
+.info-container-left{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.info-container img {
+  border-radius: 50px;
+  width: 90%;
+  height: 90%;
+}
+
+.info-container-right {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  max-width: 40%;
+  margin: auto;
+  user-select: none;
+}
+
+.info-container-right h3 {
+  font-size: 3vw;
+  max-width: 90%;
+  margin-top: 0;
+  margin-bottom: 20px;
+}
+
+.info-container-right a {
+  text-decoration: none;
+  color: white;
+  margin: 50px;
+  font-size: 2vw;
+}
+
+/* Like button */
+
+#like-button {
+  background: white;
+  border: none;
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  transition: 0.5s ease-in-out;
+}
+
+#like-button i {
+  color: grey;
+  opacity: 0.5;
+  font-size: 1.5vw;
+  transform: translate(-1px, 1px);
+}
+
+#like-button:hover {
+  cursor: pointer;
+}
+
+/* Responsive adjustments */
+
+@media only screen and (max-width: 1024px){
+
+  #intro button {
+    font-size: 2vw;
+    width: 40%;
+  }
+
+  #intro h1 {
+    font-size: 10vw;
+    width: 1000px;
+  }
+
+  #intro p {
+    font-size: 2vw;
+  }
+
+  .hero-text h2 {
+    font-size: 9vw;
+  }
+
+  .info-container {
+    flex-direction: column;
+  }
+
+  .info-container img {
+    width: 95%;
+    height: 95%;
+  }
+
+  .info-container-left {
+    width: 100%;
+    float: left;
+  }
+
+  .info-container-right {
+    max-width: 100%;
+    float: right;
+    background: black;
+    width: 100%;
+    padding: 10%;
+  }
+
+  #like-button i {
+    font-size: 3vw;
+  }
+
+  #like-button {
+    margin-bottom: 25px;
+  }
+
+  .info-container-right a {
+    font-size: 2vw;
+    margin-bottom: 0;
+  }
+
+  #gif {
+    position: absolute;
+    width: 250px;
+    height: 150px;
+    top: 30%;
+    left: 50%;
+    transform: translateX(-50%);
+    z-index: 3;
+  }
+
+}
+
+@media only screen and (max-width: 768px){
+
+  #intro button {
+    font-size: 2vw;
+    width: 20%;
+  }
+
+  #intro p {
+    font-size: 3vw;
+    max-width: 500px;
+  }
+  
+  .hero-text h2 {
+    font-size: 11vw;
+  }
+
+  .info-container-right a {
+    font-size: 4vw;
+  }
+
+  #gif {
+    position: absolute;
+    width: 300px;
+    height: 200px;
+    top: 30%;
+    left: 50%;
+    transform: translateX(-50%);
+    z-index: 3;
+  }
+}
