@@ -1,4 +1,4 @@
-# Shopify 2022 Front-end Web Development Internship Application
+# Shopify 2022 Internship App
 
 ![Application Screenshot](https://github.com/simplesapien/shopify-intern-application/blob/main/screenshot1.png?raw=true)
 
